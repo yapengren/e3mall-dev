@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!--引用dubbo服务-->
+    <dubbo:application name="peng-manager-web"/>
+
+    <!--注册中心配置-->
+    <dubbo:registry protocol="zookeeper" address="peng-zkServer:2181"/>
+
+    <!--关闭所有服务的启动时检查：(没有提供者时报错) 写在定义服务消费者一方-->
+    <dubbo:consumer check="false"/>
+
+    <!--商品管理-->
+    <dubbo:reference interface="com.peng.manager.service.ItemService" id="itemService"/>
+</beans>

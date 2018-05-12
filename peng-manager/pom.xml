@@ -17,7 +17,6 @@
         <module>peng-manager-dao</module>
         <module>peng-manager-interface</module>
         <module>peng-manager-service</module>
-        <module>peng-manager-web</module>
     </modules>
 
     <dependencies>
@@ -38,21 +37,6 @@
                 <configuration>
                     <port>9101</port>
                     <path>/</path>
-                </configuration>
-            </plugin>
-            <!-- jetty插件 -->
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <configuration>
-                    <scanIntervalSeconds>3</scanIntervalSeconds>
-                    <webApp>
-                        <contextPath>/</contextPath>
-                    </webApp>
-                    <httpConnector>
-                        <port>9101</port>
-                    </httpConnector>
-                    <reload>automatic</reload>
                 </configuration>
             </plugin>
         </plugins>
