@@ -29,6 +29,7 @@ public class PageHelperTest {
         // 从容器中获取 Mapper 代理对象
         TbItemMapper itemMapper = applicationContext.getBean(TbItemMapper.class);
         // 设置分页信息
+        // pageNum:当前页 pageSize:每页显示个数
         PageHelper.startPage(1, 30);
         // 执行查询
         TbItemExample example = new TbItemExample();

@@ -1,5 +1,6 @@
 package com.peng.manager.service;
 
+import com.peng.common.pojo.DataGridResult;
 import com.peng.manager.pojo.TbItem;
 
 /**
@@ -24,5 +25,5 @@ public interface ItemService {
      * @author renyapeng
      * @date 2018/05/12
      */
-
+    DataGridResult getItemListDataGrid(int page, int rows);
 }
