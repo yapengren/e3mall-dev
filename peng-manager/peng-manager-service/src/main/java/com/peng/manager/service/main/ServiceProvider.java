@@ -1,8 +1,7 @@
-package main;
+package com.peng.manager.service.main;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * peng-manager 启动服务类
