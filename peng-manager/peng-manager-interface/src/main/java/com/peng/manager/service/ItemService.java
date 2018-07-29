@@ -1,6 +1,7 @@
 package com.peng.manager.service;
 
 import com.peng.common.pojo.DataGridResult;
+import com.peng.common.pojo.E3Result;
 import com.peng.manager.pojo.TbItem;
 
 /**
@@ -26,4 +27,12 @@ public interface ItemService {
      * @date 2018/05/12
      */
     DataGridResult getItemListDataGrid(int page, int rows);
+
+    /**
+     * 商品添加
+     *
+     * @author renyapeng
+     * @date 2018/07/14
+     */
+    E3Result addItem(TbItem item, String desc);
 }

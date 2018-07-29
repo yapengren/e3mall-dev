@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--规定查询数据为空则返回null-->
+    <settings>
+        <!--<setting name="callSettersOnNulls" value="true"/>-->
+        <!--<setting name="jdbcTypeForNull" value="NULL"/>-->
+        <!--打印查询语句-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <!--设置数据库类型 4.0.0 以后版本不需要设置该参数，可以自动识别底层数据库-->
+            <!--<property name="dialect" value="mysql"/>-->
+        </plugin>
+    </plugins>
+</configuration>

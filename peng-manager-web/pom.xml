@@ -87,9 +87,8 @@
             <artifactId>zkclient</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.yapengren</groupId>
-            <artifactId>fastdfs-client</artifactId>
-            <version>1.20</version>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
         </dependency>
     </dependencies>
 

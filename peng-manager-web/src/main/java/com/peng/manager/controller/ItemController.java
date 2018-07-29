@@ -1,6 +1,7 @@
 package com.peng.manager.controller;
 
 import com.peng.common.pojo.DataGridResult;
+import com.peng.common.pojo.E3Result;
 import com.peng.manager.pojo.TbItem;
 import com.peng.manager.service.ItemService;
 import org.slf4j.Logger;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -48,6 +50,19 @@ public class ItemController {
     @ResponseBody
     public DataGridResult getItemList(int page, int rows) {
         DataGridResult result = itemService.getItemListDataGrid(page, rows);
+        return result;
+    }
+
+    /**
+     * 商品添加
+     *
+     * @author renyapeng
+     * @date 2018/07/14
+     */
+    @RequestMapping(value = "/item/save", method = RequestMethod.POST)
+    @ResponseBody
+    public E3Result addItem(TbItem item, String desc) {
+        E3Result result = itemService.addItem(item, desc);
         return result;
     }
 }

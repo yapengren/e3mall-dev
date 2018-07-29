@@ -3,13 +3,18 @@ package com.peng.manager.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.peng.common.pojo.DataGridResult;
+import com.peng.common.pojo.E3Result;
+import com.peng.common.utils.IDUtils;
+import com.peng.manager.mapper.TbItemDescMapper;
 import com.peng.manager.mapper.TbItemMapper;
 import com.peng.manager.pojo.TbItem;
+import com.peng.manager.pojo.TbItemDesc;
 import com.peng.manager.pojo.TbItemExample;
 import com.peng.manager.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -23,6 +28,8 @@ public class ItemServiceImpl implements ItemService {
 
     @Autowired
     private TbItemMapper itemMapper;
+    @Autowired
+    private TbItemDescMapper itemDescMapper;
 
     /**
      * 根据商品 id 查询商品信息
@@ -50,7 +57,7 @@ public class ItemServiceImpl implements ItemService {
         TbItemExample example = new TbItemExample();
         List<TbItem> list = itemMapper.selectByExample(example);
         // 从查询结果中取分页结果
-        PageInfo<TbItem> pageInfo = new PageInfo<>();
+        PageInfo<TbItem> pageInfo = new PageInfo<>(list);
         long total = pageInfo.getTotal();
         // 把 total、list 封装到 DataGridResult 对象中
         DataGridResult result = new DataGridResult();
@@ -58,5 +65,23 @@ public class ItemServiceImpl implements ItemService {
         result.setRows(list);
         // 返回结果
         return result;
+    }
+
+    @Override
+    public E3Result addItem(TbItem item, String desc) {
+        Long itemId = IDUtils.genItemId();
+        item.setId(itemId);
+        // 商品状态，1-正常，2-下架，3-删除
+        item.setStatus((byte) 1);
+        item.setCreated(new Date());
+        item.setUpdated(new Date());
+        itemMapper.insert(item);
+        TbItemDesc itemDesc = new TbItemDesc();
+        itemDesc.setItemId(itemId);
+        itemDesc.setItemDesc(desc);
+        itemDesc.setCreated(new Date());
+        itemDesc.setUpdated(new Date());
+        itemDescMapper.insert(itemDesc);
+        return E3Result.ok();
     }
 }
