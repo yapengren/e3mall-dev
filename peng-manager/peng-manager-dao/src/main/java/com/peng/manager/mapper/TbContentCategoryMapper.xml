@@ -103,7 +103,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.peng.manager.pojo.TbContentCategory">
-    insert into tb_content_category (id, parent_id, name, 
+    <selectKey resultType="long" order="AFTER" keyProperty="id">
+      select last_insert_id()
+    </selectKey>
+    insert into tb_content_category (id, parent_id, name,
       status, sort_order, is_parent, 
       created, updated)
     values (#{id,jdbcType=BIGINT}, #{parentId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 

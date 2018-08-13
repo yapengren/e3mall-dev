@@ -25,7 +25,7 @@ public class PageHelperTest {
     @Test
     public void pageHelperTest() {
         // 初始化 META-INF.META-INF.spring 容器
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:META-INF.spring/applicationContext-dao.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:spring/applicationContext-dao.xml");
         // 从容器中获取 Mapper 代理对象
         TbItemMapper itemMapper = applicationContext.getBean(TbItemMapper.class);
         // 设置分页信息

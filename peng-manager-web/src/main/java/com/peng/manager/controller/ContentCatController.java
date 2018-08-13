@@ -1,5 +1,6 @@
 package com.peng.manager.controller;
 
+import com.peng.common.pojo.E3Result;
 import com.peng.common.pojo.TreeNode;
 import com.peng.content.service.ContentCatService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +23,29 @@ public class ContentCatController {
     @Autowired
     private ContentCatService contentCatService;
 
+    /**
+     * 展示内容分类
+     *
+     * @author renyapeng
+     * @date 2018/08/13
+     */
     @RequestMapping(value = "/content/category/list")
     @ResponseBody
     public List<TreeNode> getContentCatList(@RequestParam(name = "id", defaultValue = "0") long parentId) {
         List<TreeNode> list = contentCatService.getContentCatList(parentId);
         return list;
+    }
+
+    /**
+     * 新增内容分类
+     *
+     * @author renyapeng
+     * @date 2018/08/13
+     */
+    @RequestMapping(value = "/content/category/create")
+    @ResponseBody
+    public E3Result addContentCategory(long parentId, String name) {
+        E3Result e3Result = contentCatService.addContentCategory(parentId, name);
+        return e3Result;
     }
 }
