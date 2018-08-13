@@ -48,4 +48,17 @@ public class ContentCatController {
         E3Result e3Result = contentCatService.addContentCategory(parentId, name);
         return e3Result;
     }
+
+    /**
+     * 修改内容分类
+     *
+     * @author renyapeng
+     * @date 2018/08/13
+     */
+    @RequestMapping(value = "/content/category/update")
+    @ResponseBody
+    public E3Result updateContentCategory(long id, String name) {
+        E3Result e3Result = contentCatService.updateContentCategory(id, name);
+        return e3Result;
+    }
 }

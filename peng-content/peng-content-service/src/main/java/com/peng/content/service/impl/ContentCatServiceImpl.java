@@ -89,4 +89,20 @@ public class ContentCatServiceImpl implements ContentCatService {
         // 6）返回 E3Result 其中包含 TbContentCategory 对象
         return E3Result.ok(contentCategory);
     }
+
+    /**
+     * 修改内容分类
+     *
+     * @author renyapeng
+     * @date 2018/08/13
+     */
+    @Override
+    public E3Result updateContentCategory(long id, String name) {
+        TbContentCategory contentCategory = new TbContentCategory();
+        contentCategory.setId(id);
+        contentCategory.setName(name);
+        contentCategory.setUpdated(new Date());
+        contentCategoryMapper.updateByPrimaryKeySelective(contentCategory);
+        return E3Result.ok(contentCategory);
+    }
 }
