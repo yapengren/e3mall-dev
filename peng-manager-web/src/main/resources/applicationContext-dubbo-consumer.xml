@@ -16,4 +16,6 @@
     <dubbo:reference interface="com.peng.manager.service.ItemService" id="itemService"/>
     <!--商品分类管理-->
     <dubbo:reference interface="com.peng.manager.service.ItemCatService" id="itemCatService"/>
+    <!--内容分类管理-->
+    <dubbo:reference interface="com.peng.content.service.ContentCatService" id="contentCatService"/>
 </beans>

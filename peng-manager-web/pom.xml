@@ -18,6 +18,11 @@
             <artifactId>peng-manager-interface</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.peng</groupId>
+            <artifactId>peng-content-interface</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <!--Spring的依赖-->
         <!--Spring-->
         <dependency>
