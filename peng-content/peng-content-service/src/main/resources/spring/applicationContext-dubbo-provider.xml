@@ -16,4 +16,6 @@
     <!--声明需要暴露的服务接口-->
     <!--内容分类管理-->
     <dubbo:service interface="com.peng.content.service.ContentCatService" ref="contentCatServiceImpl" timeout="1200000"/>
+    <!--内容管理-->
+    <dubbo:service interface="com.peng.content.service.ContentService" ref="contentServiceImpl" timeout="1200000"/>
 </beans>

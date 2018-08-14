@@ -18,4 +18,6 @@
     <dubbo:reference interface="com.peng.manager.service.ItemCatService" id="itemCatService"/>
     <!--内容分类管理-->
     <dubbo:reference interface="com.peng.content.service.ContentCatService" id="contentCatService"/>
+    <!--内容管理-->
+    <dubbo:reference interface="com.peng.content.service.ContentService" id="contentService"/>
 </beans>
