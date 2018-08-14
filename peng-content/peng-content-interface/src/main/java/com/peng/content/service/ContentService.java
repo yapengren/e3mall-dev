@@ -4,6 +4,8 @@ import com.peng.common.pojo.DataGridResult;
 import com.peng.common.pojo.E3Result;
 import com.peng.manager.pojo.TbContent;
 
+import java.util.List;
+
 /**
  * 内容管理Service
  */
@@ -24,4 +26,12 @@ public interface ContentService {
      * @date 2018/08/14
      */
     E3Result addContent(TbContent tbContent);
+
+    /**
+     * 展示大广告位
+     *
+     * @author renyapeng
+     * @date 2018/08/14
+     */
+    List<TbContent> getContentList(long cid);
 }

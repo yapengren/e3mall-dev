@@ -12,10 +12,6 @@
     <!--关闭所有服务的启动时检查：(没有提供者时报错) 写在定义服务消费者一方-->
     <dubbo:consumer check="false"/>
 
-    <!--商品管理-->
-    <dubbo:reference interface="com.peng.manager.service.ItemService" id="itemService"/>
-    <!--商品分类管理-->
-    <dubbo:reference interface="com.peng.manager.service.ItemCatService" id="itemCatService"/>
-    <!--内容分类管理-->
-    <dubbo:reference interface="com.peng.content.service.ContentCatService" id="contentCatService"/>
+    <!--内容管理-->
+    <dubbo:reference interface="com.peng.content.service.ContentService" id="contentService"/>
 </beans>
